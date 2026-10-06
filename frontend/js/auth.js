@@ -1,5 +1,4 @@
-const API_URL = "http://localhost:5000/api/auth";
-
+const API_URL = "https://movieticketbookings-32891aif8-gangireddysunilkumarreddy.vercel.app/api/auth";
 let loginType = "customer";
 
 

@@ -1,5 +1,4 @@
-const API_BASE = "http://localhost:5000/api";
-
+https://movieticketbookings-32891aif8-gangireddysunilkumarreddy.vercel.app
 const token = localStorage.getItem("token");
 const storedUser = localStorage.getItem("user");
 
