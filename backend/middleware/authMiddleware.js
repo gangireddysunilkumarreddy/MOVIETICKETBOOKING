@@ -1,126 +1,52 @@
-const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
 
+function protect(req, res, next) {
+    try {
+        const authHeader = req.headers.authorization;
 
-const foodSchema = new mongoose.Schema(
-    {
-        name: {
-            type: String,
-            required: true
-        },
-
-        price: {
-            type: Number,
-            required: true
-        },
-
-        quantity: {
-            type: Number,
-            required: true
-        },
-
-        total: {
-            type: Number,
-            required: true
+        if (!authHeader || !authHeader.startsWith("Bearer ")) {
+            return res.status(401).json({
+                message: "Authentication required"
+            });
         }
-    },
-    {
-        _id: false
+
+        const token = authHeader.split(" ")[1];
+
+        const decoded = jwt.verify(
+            token,
+            process.env.JWT_SECRET
+        );
+
+        req.user = decoded;
+
+        next();
+
+    } catch (error) {
+        console.error("AUTH ERROR:", error.message);
+
+        return res.status(401).json({
+            message: "Invalid or expired token"
+        });
     }
-);
+}
 
-
-const bookingSchema = new mongoose.Schema(
-    {
-        bookingId: {
-            type: String,
-            required: true,
-            unique: true
-        },
-
-        user: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User",
-            required: true
-        },
-
-        movie: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Movie",
-            required: true
-        },
-
-        theatre: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Theatre",
-            required: true
-        },
-
-        show: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Show",
-            required: true
-        },
-
-        seats: {
-            type: [String],
-            required: true
-        },
-
-        ticketPrice: {
-            type: Number,
-            required: true
-        },
-
-        ticketTotal: {
-            type: Number,
-            required: true
-        },
-
-        food: {
-            type: [foodSchema],
-            default: []
-        },
-
-        foodTotal: {
-            type: Number,
-            default: 0
-        },
-
-        totalAmount: {
-            type: Number,
-            required: true
-        },
-
-        foodStatus: {
-            type: String,
-            enum: [
-                "No Food",
-                "Pending",
-                "Preparing",
-                "Delivered"
-            ],
-            default: "No Food"
-        },
-
-        bookingStatus: {
-            type: String,
-            enum: [
-                "Confirmed",
-                "Cancelled"
-            ],
-            default: "Confirmed"
-        },
-
-        bookingDate: {
-            type: Date,
-            default: Date.now
-        }
-    },
-    {
-        timestamps: true
+function adminOnly(req, res, next) {
+    if (!req.user) {
+        return res.status(401).json({
+            message: "Authentication required"
+        });
     }
-);
 
+    if (req.user.role !== "admin") {
+        return res.status(403).json({
+            message: "Admin access required"
+        });
+    }
 
-module.exports =
-    mongoose.model("Booking", bookingSchema);
+    next();
+}
+
+module.exports = {
+    protect,
+    adminOnly
+};
