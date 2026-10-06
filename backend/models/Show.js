@@ -22,33 +22,27 @@ const showSchema = new mongoose.Schema(
             ref: "Movie",
             required: true
         },
-
         theatre: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Theatre",
             required: true
         },
-
         showDate: {
             type: String,
             required: true
         },
-
         showTime: {
             type: String,
             required: true
         },
-
         ticketPrice: {
             type: Number,
             required: true
         },
-
         seats: {
             type: [seatSchema],
             default: []
         },
-
         status: {
             type: String,
             enum: ["active", "inactive"],
