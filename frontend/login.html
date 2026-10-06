@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CineBook - Login</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.88)),
+                radial-gradient(circle at top, #351015, #080808 55%);
+            color: white;
+        }
+
+        /* =========================
+           LOGIN PAGE
+        ========================== */
+
+        .login-page {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 450px;
+        }
+
+        /* =========================
+           LOGIN CARD
+        ========================== */
+
+        .login-card {
+            width: 100%;
+            background: rgba(18, 18, 24, 0.96);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 22px;
+            padding: 40px;
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.65),
+                0 0 30px rgba(229, 9, 20, 0.08);
+        }
+
+        /* =========================
+           CINEBOOK LOGO
+        ========================== */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            white-space: nowrap;
+        }
+
+        .logo-icon {
+            font-size: 34px;
+            line-height: 1;
+        }
+
+        .logo-text {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+            line-height: 1;
+        }
+
+        .logo-text span {
+            color: #e50914;
+        }
+
+        /* =========================
+           TITLE
+        ========================== */
+
+        .login-title {
+            text-align: center;
+            font-size: 25px;
+            margin: 0 0 8px;
+            color: #ffffff;
+        }
+
+        .login-subtitle {
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            margin: 0 0 28px;
+        }
+
+        /* =========================
+           LOGIN TYPE
+        ========================== */
+
+        .login-type {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .login-type button {
+            padding: 13px 10px;
+            border-radius: 10px;
+            border: 1px solid #383838;
+            background: #151515;
+            color: #999;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .login-type button:hover {
+            border-color: #e50914;
+            color: white;
+        }
+
+        .login-type button.active {
+            background: #e50914;
+            border-color: #e50914;
+            color: white;
+            box-shadow: 0 5px 18px rgba(229, 9, 20, 0.25);
+        }
+
+        /* =========================
+           FORM
+        ========================== */
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #ddd;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 15px;
+            border-radius: 10px;
+            border: 1px solid #383838;
+            background: #0e0e0e;
+            color: white;
+            outline: none;
+            font-size: 14px;
+            transition: 0.25s;
+        }
+
+        .form-group input::placeholder {
+            color: #666;
+        }
+
+        .form-group input:focus {
+            border-color: #e50914;
+            box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.08);
+        }
+
+        /* =========================
+           LOGIN BUTTON
+        ========================== */
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #e50914;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 3px;
+            transition: 0.25s;
+        }
+
+        .login-btn:hover {
+            background: #f40612;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(229, 9, 20, 0.25);
+        }
+
+        .login-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* =========================
+           ADMIN NOTE
+        ========================== */
+
+        .admin-note {
+            display: none;
+            margin-top: 14px;
+            padding: 11px 12px;
+            border-radius: 9px;
+            background: rgba(229, 9, 20, 0.08);
+            border: 1px solid rgba(229, 9, 20, 0.2);
+            color: #ff8a8a;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        /* =========================
+           DIVIDER
+        ========================== */
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 25px 0;
+            color: #666;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #333;
+        }
+
+        /* =========================
+           GOOGLE BUTTON
+        ========================== */
+
+        .google-btn {
+            width: 100%;
+            padding: 13px;
+            border-radius: 10px;
+            border: 1px solid #444;
+            background: #ffffff;
+            color: #222;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            transition: 0.25s;
+        }
+
+        .google-btn:hover {
+            background: #f2f2f2;
+            transform: translateY(-1px);
+        }
+
+        .google-icon {
+            font-size: 20px;
+            font-weight: bold;
+            color: #4285f4;
+        }
+
+        /* =========================
+           MESSAGE
+        ========================== */
+
+        .message {
+            min-height: 20px;
+            text-align: center;
+            margin-top: 15px;
+            color: #ff6b6b;
+            font-size: 14px;
+        }
+
+        /* =========================
+           REGISTER
+        ========================== */
+
+        .register-link {
+            text-align: center;
+            margin-top: 22px;
+            color: #888;
+            font-size: 14px;
+        }
+
+        .register-link a {
+            color: #e50914;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 500px) {
+
+            .login-page {
+                padding: 20px 15px;
+            }
+
+            .login-card {
+                padding: 28px 22px;
+                border-radius: 18px;
+            }
+
+            .logo-icon {
+                font-size: 30px;
+            }
+
+            .logo-text {
+                font-size: 28px;
+            }
+
+            .login-title {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-page">
+
+        <div class="login-container">
+
+            <div class="login-card">
+
+                <!-- =========================
+                     CINEBOOK LOGO
+                ========================== -->
+
+                <div class="logo">
+
+                    <span class="logo-icon">🎬</span>
+
+                    <span class="logo-text">
+                        Cine<span>Book</span>
+                    </span>
+
+                </div>
+
+
+                <!-- =========================
+                     TITLE
+                ========================== -->
+
+                <h2 class="login-title">
+                    Welcome Back
+                </h2>
+
+                <p class="login-subtitle">
+                    Login to continue booking your movies
+                </p>
+
+
+                <!-- =========================
+                     CUSTOMER / ADMIN
+                ========================== -->
+
+                <div class="login-type">
+
+                    <button
+                        type="button"
+                        id="customerBtn"
+                        class="active"
+                        onclick="selectLoginType('customer')">
+
+                        👤 Customer
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="adminBtn"
+                        onclick="selectLoginType('admin')">
+
+                        🛡️ Admin
+
+                    </button>
+
+                </div>
+
+
+                <!-- =========================
+                     LOGIN FORM
+                ========================== -->
+
+                <form id="loginForm">
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            required>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="login-btn"
+                        id="loginBtn">
+
+                        Login
+
+                    </button>
+
+                </form>
+
+
+                <!-- =========================
+                     ADMIN MESSAGE
+                ========================== -->
+
+                <div
+                    class="admin-note"
+                    id="adminNote">
+
+                    🛡️ Admin login selected.<br>
+                    Use your administrator credentials.
+
+                </div>
+
+
+                <!-- =========================
+                     GOOGLE LOGIN
+                ========================== -->
+
+                <div
+                    class="divider"
+                    id="googleDivider">
+
+                    OR
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="google-btn"
+                    id="googleBtn"
+                    onclick="loginWithGoogle()">
+
+                    <span class="google-icon">
+                        G
+                    </span>
+
+                    Login with Google
+
+                </button>
+
+
+                <!-- =========================
+                     ERROR / SUCCESS MESSAGE
+                ========================== -->
+
+                <div
+                    class="message"
+                    id="message">
+                </div>
+
+
+                <!-- =========================
+                     REGISTER
+                ========================== -->
+
+                <div
+                    class="register-link"
+                    id="registerSection">
+
+                    Don't have an account?
+
+                    <a href="register.html">
+                        Register
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- AUTH JAVASCRIPT -->
+
+    <script src="js/auth.js"></script>
+
+</body>
+
+</html>

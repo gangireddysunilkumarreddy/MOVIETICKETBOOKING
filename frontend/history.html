@@ -1,0 +1,158 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Bookings | CineBook</title>
+
+    <link
+        rel="stylesheet"
+        href="css/history.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="brand">
+            🎬 <span>CineBook</span>
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="home.html">
+                Home
+            </a>
+
+            <a href="home.html#movies">
+                Movies
+            </a>
+
+            <a href="home.html#theatres">
+                Theatres
+            </a>
+
+            <a href="history.html" class="active">
+                My Bookings
+            </a>
+
+        </div>
+
+
+        <div class="nav-user">
+
+            <span id="userName">
+                User
+            </span>
+
+            <button onclick="logout()">
+                Logout
+            </button>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- PAGE HEADER -->
+
+    <section class="page-header">
+
+        <span>
+            ACCOUNT
+        </span>
+
+        <h1>
+            My Bookings
+        </h1>
+
+        <p>
+            View and manage your movie ticket bookings.
+        </p>
+
+    </section>
+
+
+
+    <!-- BOOKINGS -->
+
+    <main class="booking-container">
+
+        <div
+            id="bookingList"
+            class="booking-list"
+        >
+
+            <!-- Bookings will appear here -->
+
+            <div class="empty-bookings">
+
+                <div class="empty-icon">
+                    🎟️
+                </div>
+
+                <h2>
+                    No Bookings Yet
+                </h2>
+
+                <p>
+                    Your booked movie tickets will appear here.
+                </p>
+
+                <a
+                    href="home.html#movies"
+                    class="browse-btn"
+                >
+                    Browse Movies
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div>
+            🎬 <strong>CineBook</strong>
+        </div>
+
+        <p>
+            Your gateway to unforgettable movie experiences.
+        </p>
+
+        <small>
+            © 2026 CineBook. All rights reserved.
+        </small>
+
+    </footer>
+
+
+
+    <script src="js/history.js"></script>
+
+</body>
+
+</html>
+```

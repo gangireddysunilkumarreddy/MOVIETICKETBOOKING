@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | CineBook</title>
+
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="admin-brand">
+            🎬 <span>CineBook</span>
+        </div>
+
+        <div class="admin-label">
+            ADMIN PANEL
+        </div>
+
+        <nav>
+
+            <a href="dashboard.html" class="active">
+                📊 Dashboard
+            </a>
+
+            <a href="#">
+                🎬 Movies
+            </a>
+
+            <a href="#">
+                🏢 Theatres
+            </a>
+
+            <a href="#">
+                🕐 Shows
+            </a>
+
+            <a href="#">
+                🎟 Bookings
+            </a>
+
+        </nav>
+
+        <button class="logout-btn" onclick="logout()">
+            Logout
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="admin-main">
+
+        <!-- TOP BAR -->
+
+        <header class="admin-topbar">
+
+            <div>
+                <h1>Dashboard</h1>
+
+                <p>
+                    Manage your CineBook platform
+                </p>
+            </div>
+
+            <div class="admin-profile">
+
+                <div class="admin-avatar">
+                    A
+                </div>
+
+                <div>
+                    <strong id="adminName">
+                        Administrator
+                    </strong>
+
+                    <small>
+                        Admin
+                    </small>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- STATISTICS -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🎬
+                </div>
+
+                <div>
+                    <span>Total Movies</span>
+                    <h2>0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🏢
+                </div>
+
+                <div>
+                    <span>Total Theatres</span>
+                    <h2>0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🕐
+                </div>
+
+                <div>
+                    <span>Today's Shows</span>
+                    <h2>0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🎟️
+                </div>
+
+                <div>
+                    <span>Total Bookings</span>
+                    <h2>0</h2>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK ACTIONS -->
+
+        <section class="dashboard-section">
+
+            <div class="section-title">
+
+                <div>
+
+                    <span>
+                        MANAGEMENT
+                    </span>
+
+                    <h2>
+                        Quick Actions
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="action-grid">
+
+
+                <!-- ADD MOVIE -->
+
+                <div class="action-card">
+
+                    <div class="action-icon">
+                        🎬
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Add Movie
+                        </h3>
+
+                        <p>
+                            Add a new movie to CineBook.
+                        </p>
+
+                    </div>
+
+                    <button>
+                        Add →
+                    </button>
+
+                </div>
+
+
+                <!-- ADD THEATRE -->
+
+                <div class="action-card">
+
+                    <div class="action-icon">
+                        🏢
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Add Theatre
+                        </h3>
+
+                        <p>
+                            Register a new theatre.
+                        </p>
+
+                    </div>
+
+                    <button>
+                        Add →
+                    </button>
+
+                </div>
+
+
+                <!-- ADD SHOW -->
+
+                <div class="action-card">
+
+                    <div class="action-icon">
+                        🕐
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Add Show
+                        </h3>
+
+                        <p>
+                            Create movie show timings.
+                        </p>
+
+                    </div>
+
+                    <button>
+                        Add →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RECENT BOOKINGS -->
+
+        <section class="dashboard-section">
+
+            <div class="section-title">
+
+                <div>
+
+                    <span>
+                        ACTIVITY
+                    </span>
+
+                    <h2>
+                        Recent Bookings
+                    </h2>
+
+                </div>
+
+                <button class="view-all">
+                    View All
+                </button>
+
+            </div>
+
+
+            <div class="booking-table">
+
+                <div class="empty-state">
+
+                    <div>
+                        🎟️
+                    </div>
+
+                    <h3>
+                        No bookings yet
+                    </h3>
+
+                    <p>
+                        Customer bookings will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        // Check admin login
+
+        const user = JSON.parse(
+            localStorage.getItem("user")
+        );
+
+        if (!user) {
+
+            window.location.href =
+                "../login.html";
+
+        }
+
+
+        // Only admin can access dashboard
+
+        if (user && user.role !== "admin") {
+
+            window.location.href =
+                "../home.html";
+
+        }
+
+
+        // Display admin name
+
+        if (user) {
+
+            const adminName =
+                document.getElementById("adminName");
+
+            if (adminName) {
+
+                adminName.textContent =
+                    user.name;
+
+            }
+
+        }
+
+
+        // Logout
+
+        function logout() {
+
+            localStorage.removeItem("token");
+
+            localStorage.removeItem("user");
+
+            window.location.href =
+                "../login.html";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

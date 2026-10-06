@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Book Tickets | CineBook</title>
+
+    <link rel="stylesheet" href="css/booking.css">
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            CINEBOOK
+        </div>
+
+        <div class="nav-links">
+
+            <a href="home.html">Home</a>
+
+            <a href="history.html">My Bookings</a>
+
+            <span class="user-name" id="userName">
+                User
+            </span>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="booking-container">
+
+        <div class="booking-header">
+
+            <span>MOVIE TICKET BOOKING</span>
+
+            <h1>
+                Book Your Tickets
+            </h1>
+
+            <p>
+                Select theatre, show time, seats and
+                order food for the interval.
+            </p>
+
+        </div>
+
+
+        <div class="booking-layout">
+
+
+            <!-- ================= LEFT ================= -->
+
+            <div>
+
+
+                <!-- THEATRE + SHOW TIME -->
+
+                <div class="booking-card">
+
+                    <h2>
+                        🎬 Select Theatre & Show
+                    </h2>
+
+
+                    <div class="theatre-section">
+
+                        <label>
+                            SELECT THEATRE
+                        </label>
+
+                        <select id="theatre">
+
+                            <option value="">
+                                Select Theatre
+                            </option>
+
+                            <option value="PVR Cinemas - Vijayawada">
+                                PVR Cinemas - Vijayawada
+                            </option>
+
+                            <option value="INOX - Vijayawada">
+                                INOX - Vijayawada
+                            </option>
+
+                            <option value="Asian Cinemas - Vijayawada">
+                                Asian Cinemas - Vijayawada
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <h3>
+                        Select Show Time
+                    </h3>
+
+
+                    <div class="show-times">
+
+                        <button
+                            type="button"
+                            class="show-time-btn"
+                            onclick="selectTime(this)">
+                            10:00 AM
+                        </button>
+
+                        <button
+                            type="button"
+                            class="show-time-btn"
+                            onclick="selectTime(this)">
+                            1:30 PM
+                        </button>
+
+                        <button
+                            type="button"
+                            class="show-time-btn"
+                            onclick="selectTime(this)">
+                            4:30 PM
+                        </button>
+
+                        <button
+                            type="button"
+                            class="show-time-btn"
+                            onclick="selectTime(this)">
+                            7:30 PM
+                        </button>
+
+                        <button
+                            type="button"
+                            class="show-time-btn"
+                            onclick="selectTime(this)">
+                            10:30 PM
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= SEATS ================= -->
+
+                <div class="booking-card">
+
+                    <h2>
+                        💺 Select Your Seats
+                    </h2>
+
+
+                    <div class="seat-section">
+
+
+                        <!-- SCREEN -->
+
+                        <div class="screen"></div>
+
+                        <div class="screen-text">
+                            SCREEN
+                        </div>
+
+
+                        <!-- ROW A -->
+
+                        <div class="seat-row">
+
+                            <span class="row-label">A</span>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                A1
+                            </button>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                A2
+                            </button>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                A3
+                            </button>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                A4
+                            </button>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                A5
+                            </button>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                A6
+                            </button>
+
+                        </div>
+
+
+                        <!-- ROW B -->
+
+                        <div class="seat-row">
+
+                            <span class="row-label">B</span>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                B1
+                            </button>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                B2
+                            </button>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                B3
+                            </button>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                B4
+                            </button>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                B5
+                            </button>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                B6
+                            </button>
+
+                        </div>
+
+
+                        <!-- ROW C -->
+
+                        <div class="seat-row">
+
+                            <span class="row-label">C</span>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                C1
+                            </button>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                C2
+                            </button>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                C3
+                            </button>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                C4
+                            </button>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                C5
+                            </button>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                C6
+                            </button>
+
+                        </div>
+
+
+                        <!-- ROW D -->
+
+                        <div class="seat-row">
+
+                            <span class="row-label">D</span>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                D1
+                            </button>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                D2
+                            </button>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                D3
+                            </button>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                D4
+                            </button>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                D5
+                            </button>
+
+                            <button class="seat"
+                                    type="button"
+                                    onclick="selectSeat(this)">
+                                D6
+                            </button>
+
+                        </div>
+
+
+                        <!-- LEGEND -->
+
+                        <div class="seat-legend">
+
+                            <div class="legend-item">
+
+                                <span class="legend-box"></span>
+
+                                Available
+
+                            </div>
+
+
+                            <div class="legend-item">
+
+                                <span class="legend-box selected"></span>
+
+                                Selected
+
+                            </div>
+
+
+                            <div class="legend-item">
+
+                                <span class="legend-box booked"></span>
+
+                                Booked
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= FOOD ================= -->
+
+                <div class="food-section">
+
+                    <div class="food-heading">
+
+                        <span class="food-label">
+                            INTERVAL SERVICE
+                        </span>
+
+                        <h2>
+                            🍿 Order Food for Interval
+                        </h2>
+
+                        <p>
+                            Pre-order your favourite snacks
+                            and get them delivered directly
+                            to your seat during the movie interval.
+                        </p>
+
+                    </div>
+
+
+                    <div class="food-grid">
+
+
+                        <!-- POPCORN -->
+
+                        <div class="food-card">
+
+                            <div class="food-image">
+                                🍿
+                            </div>
+
+                            <div class="food-details">
+
+                                <h3>
+                                    Popcorn
+                                </h3>
+
+                                <p>
+                                    Classic salted popcorn
+                                </p>
+
+                                <strong>
+                                    ₹150
+                                </strong>
+
+                                <div class="quantity-control">
+
+                                    <button
+                                        type="button"
+                                        onclick="changeFoodQuantity('popcorn', -1)">
+                                        −
+                                    </button>
+
+                                    <span id="popcornQty">
+                                        0
+                                    </span>
+
+                                    <button
+                                        type="button"
+                                        onclick="changeFoodQuantity('popcorn', 1)">
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- COKE -->
+
+                        <div class="food-card">
+
+                            <div class="food-image">
+                                🥤
+                            </div>
+
+                            <div class="food-details">
+
+                                <h3>
+                                    Coke
+                                </h3>
+
+                                <p>
+                                    Chilled soft drink
+                                </p>
+
+                                <strong>
+                                    ₹100
+                                </strong>
+
+                                <div class="quantity-control">
+
+                                    <button
+                                        type="button"
+                                        onclick="changeFoodQuantity('coke', -1)">
+                                        −
+                                    </button>
+
+                                    <span id="cokeQty">
+                                        0
+                                    </span>
+
+                                    <button
+                                        type="button"
+                                        onclick="changeFoodQuantity('coke', 1)">
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PIZZA -->
+
+                        <div class="food-card">
+
+                            <div class="food-image">
+                                🍕
+                            </div>
+
+                            <div class="food-details">
+
+                                <h3>
+                                    Pizza
+                                </h3>
+
+                                <p>
+                                    Cheese loaded pizza
+                                </p>
+
+                                <strong>
+                                    ₹250
+                                </strong>
+
+                                <div class="quantity-control">
+
+                                    <button
+                                        type="button"
+                                        onclick="changeFoodQuantity('pizza', -1)">
+                                        −
+                                    </button>
+
+                                    <span id="pizzaQty">
+                                        0
+                                    </span>
+
+                                    <button
+                                        type="button"
+                                        onclick="changeFoodQuantity('pizza', 1)">
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FRIES -->
+
+                        <div class="food-card">
+
+                            <div class="food-image">
+                                🍟
+                            </div>
+
+                            <div class="food-details">
+
+                                <h3>
+                                    French Fries
+                                </h3>
+
+                                <p>
+                                    Crispy golden fries
+                                </p>
+
+                                <strong>
+                                    ₹120
+                                </strong>
+
+                                <div class="quantity-control">
+
+                                    <button
+                                        type="button"
+                                        onclick="changeFoodQuantity('fries', -1)">
+                                        −
+                                    </button>
+
+                                    <span id="friesQty">
+                                        0
+                                    </span>
+
+                                    <button
+                                        type="button"
+                                        onclick="changeFoodQuantity('fries', 1)">
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="food-total">
+
+                        <span>
+                            🍿 Food Order Total
+                        </span>
+
+                        <strong id="foodTotal">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= SUMMARY ================= -->
+
+            <div class="booking-summary">
+
+                <h2>
+                    Booking Summary
+                </h2>
+
+
+                <div class="summary-row">
+
+                    <span>Movie</span>
+
+                    <span id="summaryMovie">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>Theatre</span>
+
+                    <span id="summaryTheatre">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>Show Time</span>
+
+                    <span id="summaryTime">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>Seats</span>
+
+                    <span id="selectedSeats">
+                        None
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>Ticket Price</span>
+
+                    <span>
+                        ₹200 / seat
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>Food</span>
+
+                    <span id="summaryFood">
+                        ₹0
+                    </span>
+
+                </div>
+
+
+                <div class="summary-total">
+
+                    <span>
+                        TOTAL
+                    </span>
+
+                    <strong id="totalAmount">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="confirm-btn"
+                    onclick="confirmBooking()">
+
+                    Confirm Booking
+
+                </button>
+
+
+                <a
+                    href="home.html"
+                    class="back-btn">
+
+                    ← Back to Movies
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script src="js/booking.js"></script>
+
+</body>
+
+</html>

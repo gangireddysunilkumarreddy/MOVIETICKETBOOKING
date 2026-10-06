@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>CineBook | Movie Ticket Booking</title>
+
+    <link
+        rel="stylesheet"
+        href="css/home.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+
+        <!-- BRAND -->
+
+        <div class="brand">
+
+            🎬
+
+            <span>
+                CineBook
+            </span>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <div class="nav-links">
+
+            <a
+                href="home.html"
+                class="active"
+            >
+                Home
+            </a>
+
+            <a href="#movies">
+                Movies
+            </a>
+
+            <a href="#theatres">
+                Theatres
+            </a>
+
+            <a href="history.html">
+                My Bookings
+            </a>
+
+        </div>
+
+
+        <!-- USER -->
+
+        <div class="nav-user">
+
+            <span id="userName">
+                User
+            </span>
+
+            <button onclick="logout()">
+                Logout
+            </button>
+
+        </div>
+
+
+    </nav>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+
+        <div class="hero-content">
+
+
+            <span class="hero-tag">
+                NOW SHOWING
+            </span>
+
+
+            <h1>
+
+                Your Movie.
+
+                <br>
+
+                Your Seat.
+
+                <br>
+
+                <span>
+                    Your Experience.
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                Discover the latest movies,
+                choose your favourite theatre
+                and book your perfect seats
+                in seconds.
+
+            </p>
+
+
+            <button
+                class="hero-btn"
+                onclick="
+                    document
+                    .getElementById('movies')
+                    .scrollIntoView()
+                "
+            >
+
+                Explore Movies →
+
+            </button>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= MOVIES ================= -->
+
+    <section
+        class="section"
+        id="movies"
+    >
+
+
+        <div class="section-header">
+
+
+            <div>
+
+                <span class="section-label">
+                    EXPLORE
+                </span>
+
+
+                <h2>
+                    Popular Movies
+                </h2>
+
+            </div>
+
+
+            <button class="view-btn">
+                View All
+            </button>
+
+
+        </div>
+
+
+
+        <!-- MOVIE GRID -->
+
+        <div class="movie-grid">
+
+
+            <!-- MOVIE 1 -->
+
+            <div class="movie-card">
+
+
+                <div class="poster poster-one">
+
+                    <span>
+                        NOW SHOWING
+                    </span>
+
+                </div>
+
+
+                <div class="movie-info">
+
+
+                    <h3>
+                        Pushpa: The Rule
+                    </h3>
+
+
+                    <p>
+                        Action • Drama • Telugu
+                    </p>
+
+
+                    <div class="movie-bottom">
+
+
+                        <span>
+                            ⭐ 8.5
+                        </span>
+
+
+                        <button
+                            onclick="
+                                bookMovie(
+                                    'Pushpa: The Rule'
+                                )
+                            "
+                        >
+                            Book Now
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- MOVIE 2 -->
+
+            <div class="movie-card">
+
+
+                <div class="poster poster-two">
+
+                    <span>
+                        NOW SHOWING
+                    </span>
+
+                </div>
+
+
+                <div class="movie-info">
+
+
+                    <h3>
+                        Kingdom
+                    </h3>
+
+
+                    <p>
+                        Action • Thriller • Telugu
+                    </p>
+
+
+                    <div class="movie-bottom">
+
+
+                        <span>
+                            ⭐ 8.2
+                        </span>
+
+
+                        <button
+                            onclick="
+                                bookMovie(
+                                    'Kingdom'
+                                )
+                            "
+                        >
+                            Book Now
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- MOVIE 3 -->
+
+            <div class="movie-card">
+
+
+                <div class="poster poster-three">
+
+                    <span>
+                        NOW SHOWING
+                    </span>
+
+                </div>
+
+
+                <div class="movie-info">
+
+
+                    <h3>
+                        Retro
+                    </h3>
+
+
+                    <p>
+                        Drama • Romance
+                    </p>
+
+
+                    <div class="movie-bottom">
+
+
+                        <span>
+                            ⭐ 8.0
+                        </span>
+
+
+                        <button
+                            onclick="
+                                bookMovie(
+                                    'Retro'
+                                )
+                            "
+                        >
+                            Book Now
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- MOVIE 4 -->
+
+            <div class="movie-card">
+
+
+                <div class="poster poster-four">
+
+                    <span>
+                        NOW SHOWING
+                    </span>
+
+                </div>
+
+
+                <div class="movie-info">
+
+
+                    <h3>
+                        Coolie
+                    </h3>
+
+
+                    <p>
+                        Action • Thriller
+                    </p>
+
+
+                    <div class="movie-bottom">
+
+
+                        <span>
+                            ⭐ 8.7
+                        </span>
+
+
+                        <button
+                            onclick="
+                                bookMovie(
+                                    'Coolie'
+                                )
+                            "
+                        >
+                            Book Now
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= THEATRES ================= -->
+
+    <section
+        class="section theatres"
+        id="theatres"
+    >
+
+
+        <div class="section-header">
+
+
+            <div>
+
+                <span class="section-label">
+                    LOCATIONS
+                </span>
+
+
+                <h2>
+                    Popular Theatres
+                </h2>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="theatre-grid">
+
+
+            <!-- THEATRE 1 -->
+
+            <div class="theatre-card">
+
+
+                <div class="theatre-icon">
+                    🎥
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        PVR Cinemas
+                    </h3>
+
+
+                    <p>
+                        Vijayawada
+                    </p>
+
+
+                    <span>
+                        ★★★★★ 4.5
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- THEATRE 2 -->
+
+            <div class="theatre-card">
+
+
+                <div class="theatre-icon">
+                    🎬
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        INOX
+                    </h3>
+
+
+                    <p>
+                        Vijayawada
+                    </p>
+
+
+                    <span>
+                        ★★★★★ 4.4
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- THEATRE 3 -->
+
+            <div class="theatre-card">
+
+
+                <div class="theatre-icon">
+                    🍿
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Asian Cinemas
+                    </h3>
+
+
+                    <p>
+                        Vijayawada
+                    </p>
+
+
+                    <span>
+                        ★★★★★ 4.6
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+
+        <div>
+
+            🎬
+
+            <strong>
+                CineBook
+            </strong>
+
+        </div>
+
+
+        <p>
+            Your gateway to unforgettable movie experiences.
+        </p>
+
+
+        <small>
+            © 2026 CineBook. All rights reserved.
+        </small>
+
+
+    </footer>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/home.js"></script>
+
+
+</body>
+
+</html>
