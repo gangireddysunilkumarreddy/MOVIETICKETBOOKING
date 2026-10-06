@@ -3,88 +3,198 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Admin Dashboard | CineBook</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="../css/admin.css">
+    <title>CineBook - Admin Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/admin.css"
+    >
 </head>
 
 <body>
 
-    <!-- SIDEBAR -->
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
 
     <aside class="sidebar">
 
-        <div class="admin-brand">
-            🎬 <span>CineBook</span>
+        <div class="brand">
+            <div class="brand-icon">🎬</div>
+
+            <div>
+                <h2>Cine<span>Book</span></h2>
+                <p>ADMIN PANEL</p>
+            </div>
         </div>
 
-        <div class="admin-label">
-            ADMIN PANEL
+
+        <div class="admin-user">
+
+            <div class="admin-avatar">
+                👤
+            </div>
+
+            <div>
+                <strong id="adminName">
+                    Admin
+                </strong>
+
+                <small>
+                    Administrator
+                </small>
+            </div>
+
         </div>
 
-        <nav>
 
-            <a href="dashboard.html" class="active">
-                📊 Dashboard
-            </a>
+        <nav class="sidebar-menu">
 
-            <a href="#">
-                🎬 Movies
-            </a>
+            <button
+                class="sidebar-link active"
+                data-section="dashboard"
+                onclick="showSection('dashboard')"
+            >
+                <span>📊</span>
+                Dashboard
+            </button>
 
-            <a href="#">
-                🏢 Theatres
-            </a>
 
-            <a href="#">
-                🕐 Shows
-            </a>
+            <button
+                class="sidebar-link"
+                data-section="movies"
+                onclick="showSection('movies')"
+            >
+                <span>🎬</span>
+                Movies
+            </button>
 
-            <a href="#">
-                🎟 Bookings
-            </a>
+
+            <button
+                class="sidebar-link"
+                data-section="theatres"
+                onclick="showSection('theatres')"
+            >
+                <span>🏢</span>
+                Theatres
+            </button>
+
+
+            <button
+                class="sidebar-link"
+                data-section="shows"
+                onclick="showSection('shows')"
+            >
+                <span>🎟️</span>
+                Shows
+            </button>
+
+
+            <button
+                class="sidebar-link"
+                data-section="bookings"
+                onclick="showSection('bookings')"
+            >
+                <span>📋</span>
+                Bookings
+            </button>
+
+
+            <button
+                class="sidebar-link"
+                data-section="food"
+                onclick="showSection('food')"
+            >
+                <span>🍿</span>
+                Food Orders
+            </button>
+
+
+            <button
+                class="sidebar-link"
+                data-section="users"
+                onclick="showSection('users')"
+            >
+                <span>👥</span>
+                Users
+            </button>
 
         </nav>
 
-        <button class="logout-btn" onclick="logout()">
+
+        <button
+            class="logout-button"
+            onclick="logout()"
+        >
+            <span>↪</span>
             Logout
         </button>
 
     </aside>
 
 
-    <!-- MAIN -->
 
-    <main class="admin-main">
+    <!-- =========================================
+         MAIN
+    ========================================== -->
 
-        <!-- TOP BAR -->
+    <main class="main-content">
 
-        <header class="admin-topbar">
+
+        <!-- =====================================
+             TOPBAR
+        ====================================== -->
+
+        <header class="topbar">
 
             <div>
-                <h1>Dashboard</h1>
 
-                <p>
-                    Manage your CineBook platform
+                <p class="welcome-text">
+                    Welcome back, Admin 👋
                 </p>
+
+                <h1 id="pageTitle">
+                    Dashboard
+                </h1>
+
             </div>
 
-            <div class="admin-profile">
 
-                <div class="admin-avatar">
-                    A
+            <div class="topbar-right">
+
+                <div class="date-box">
+
+                    <span>📅</span>
+
+                    <span id="currentDate">
+                        Today
+                    </span>
+
                 </div>
 
-                <div>
-                    <strong id="adminName">
-                        Administrator
-                    </strong>
 
-                    <small>
-                        Admin
-                    </small>
+                <div class="top-admin">
+
+                    <div class="mini-avatar">
+                        👤
+                    </div>
+
+                    <div>
+                        <strong id="topAdminName">
+                            Admin
+                        </strong>
+
+                        <small>
+                            Online
+                        </small>
+                    </div>
+
                 </div>
 
             </div>
@@ -92,61 +202,323 @@
         </header>
 
 
-        <!-- STATISTICS -->
 
-        <section class="stats-grid">
+        <!-- =====================================
+             DASHBOARD
+        ====================================== -->
 
-            <div class="stat-card">
+        <section
+            id="dashboard"
+            class="admin-section active"
+        >
 
-                <div class="stat-icon">
-                    🎬
-                </div>
+            <div class="section-heading">
 
                 <div>
-                    <span>Total Movies</span>
-                    <h2>0</h2>
+                    <h2>Dashboard Overview</h2>
+
+                    <p>
+                        Manage your CineBook movie booking system
+                    </p>
                 </div>
 
             </div>
 
 
-            <div class="stat-card">
+            <!-- STATS -->
 
-                <div class="stat-icon">
-                    🏢
+            <div class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+
+                        <div class="stat-icon movie-icon">
+                            🎬
+                        </div>
+
+                        <span class="stat-label">
+                            Movies
+                        </span>
+
+                    </div>
+
+                    <h3 id="movieCount">
+                        0
+                    </h3>
+
+                    <p>
+                        Total movies
+                    </p>
+
                 </div>
 
-                <div>
-                    <span>Total Theatres</span>
-                    <h2>0</h2>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+
+                        <div class="stat-icon theatre-icon">
+                            🏢
+                        </div>
+
+                        <span class="stat-label">
+                            Theatres
+                        </span>
+
+                    </div>
+
+                    <h3 id="theatreCount">
+                        0
+                    </h3>
+
+                    <p>
+                        Active theatres
+                    </p>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+
+                        <div class="stat-icon show-icon">
+                            🎟️
+                        </div>
+
+                        <span class="stat-label">
+                            Shows
+                        </span>
+
+                    </div>
+
+                    <h3 id="showCount">
+                        0
+                    </h3>
+
+                    <p>
+                        Scheduled shows
+                    </p>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+
+                        <div class="stat-icon booking-icon">
+                            📋
+                        </div>
+
+                        <span class="stat-label">
+                            Bookings
+                        </span>
+
+                    </div>
+
+                    <h3 id="bookingCount">
+                        0
+                    </h3>
+
+                    <p>
+                        Total bookings
+                    </p>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+
+                        <div class="stat-icon revenue-icon">
+                            ₹
+                        </div>
+
+                        <span class="stat-label">
+                            Revenue
+                        </span>
+
+                    </div>
+
+                    <h3 id="revenueCount">
+                        ₹0
+                    </h3>
+
+                    <p>
+                        Total revenue
+                    </p>
+
                 </div>
 
             </div>
 
 
-            <div class="stat-card">
 
-                <div class="stat-icon">
-                    🕐
+            <!-- DASHBOARD LOWER -->
+
+            <div class="dashboard-grid">
+
+
+                <!-- RECENT BOOKINGS -->
+
+                <div class="dashboard-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h3>
+                                Recent Bookings
+                            </h3>
+
+                            <p>
+                                Latest customer bookings
+                            </p>
+                        </div>
+
+                        <button
+                            class="text-button"
+                            onclick="showSection('bookings')"
+                        >
+                            View All →
+                        </button>
+
+                    </div>
+
+
+                    <div id="recentBookings">
+
+                        <div class="empty-state">
+
+                            <div class="empty-icon">
+                                🎟️
+                            </div>
+
+                            <h4>
+                                No bookings yet
+                            </h4>
+
+                            <p>
+                                Customer bookings will appear here.
+                            </p>
+
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <div>
-                    <span>Today's Shows</span>
-                    <h2>0</h2>
-                </div>
-
-            </div>
 
 
-            <div class="stat-card">
+                <!-- QUICK ACTIONS -->
 
-                <div class="stat-icon">
-                    🎟️
-                </div>
+                <div class="dashboard-panel">
 
-                <div>
-                    <span>Total Bookings</span>
-                    <h2>0</h2>
+                    <div class="panel-header">
+
+                        <div>
+                            <h3>
+                                Quick Actions
+                            </h3>
+
+                            <p>
+                                Manage your system
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="quick-actions">
+
+                        <button
+                            onclick="openMovieModal()"
+                            class="quick-action"
+                        >
+                            <span>🎬</span>
+
+                            <div>
+                                <strong>
+                                    Add Movie
+                                </strong>
+
+                                <small>
+                                    Create movie
+                                </small>
+                            </div>
+
+                            <b>→</b>
+                        </button>
+
+
+                        <button
+                            onclick="openTheatreModal()"
+                            class="quick-action"
+                        >
+                            <span>🏢</span>
+
+                            <div>
+                                <strong>
+                                    Add Theatre
+                                </strong>
+
+                                <small>
+                                    Add theatre
+                                </small>
+                            </div>
+
+                            <b>→</b>
+                        </button>
+
+
+                        <button
+                            onclick="openShowModal()"
+                            class="quick-action"
+                        >
+                            <span>🎟️</span>
+
+                            <div>
+                                <strong>
+                                    Create Show
+                                </strong>
+
+                                <small>
+                                    Schedule show
+                                </small>
+                            </div>
+
+                            <b>→</b>
+                        </button>
+
+
+                        <button
+                            onclick="showSection('bookings')"
+                            class="quick-action"
+                        >
+                            <span>📋</span>
+
+                            <div>
+                                <strong>
+                                    Bookings
+                                </strong>
+
+                                <small>
+                                    View bookings
+                                </small>
+                            </div>
+
+                            <b>→</b>
+                        </button>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -154,155 +526,430 @@
         </section>
 
 
-        <!-- QUICK ACTIONS -->
 
-        <section class="dashboard-section">
+        <!-- =====================================
+             MOVIES
+        ====================================== -->
 
-            <div class="section-title">
+        <section
+            id="movies"
+            class="admin-section"
+        >
 
-                <div>
-
-                    <span>
-                        MANAGEMENT
-                    </span>
-
-                    <h2>
-                        Quick Actions
-                    </h2>
-
-                </div>
-
-            </div>
-
-
-            <div class="action-grid">
-
-
-                <!-- ADD MOVIE -->
-
-                <div class="action-card">
-
-                    <div class="action-icon">
-                        🎬
-                    </div>
-
-                    <div>
-
-                        <h3>
-                            Add Movie
-                        </h3>
-
-                        <p>
-                            Add a new movie to CineBook.
-                        </p>
-
-                    </div>
-
-                    <button>
-                        Add →
-                    </button>
-
-                </div>
-
-
-                <!-- ADD THEATRE -->
-
-                <div class="action-card">
-
-                    <div class="action-icon">
-                        🏢
-                    </div>
-
-                    <div>
-
-                        <h3>
-                            Add Theatre
-                        </h3>
-
-                        <p>
-                            Register a new theatre.
-                        </p>
-
-                    </div>
-
-                    <button>
-                        Add →
-                    </button>
-
-                </div>
-
-
-                <!-- ADD SHOW -->
-
-                <div class="action-card">
-
-                    <div class="action-icon">
-                        🕐
-                    </div>
-
-                    <div>
-
-                        <h3>
-                            Add Show
-                        </h3>
-
-                        <p>
-                            Create movie show timings.
-                        </p>
-
-                    </div>
-
-                    <button>
-                        Add →
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- RECENT BOOKINGS -->
-
-        <section class="dashboard-section">
-
-            <div class="section-title">
+            <div class="section-heading">
 
                 <div>
+                    <h2>Movie Management</h2>
 
-                    <span>
-                        ACTIVITY
-                    </span>
-
-                    <h2>
-                        Recent Bookings
-                    </h2>
-
+                    <p>
+                        Add and manage movies available for booking
+                    </p>
                 </div>
 
-                <button class="view-all">
-                    View All
+
+                <button
+                    class="primary-button"
+                    onclick="openMovieModal()"
+                >
+                    + Add Movie
                 </button>
 
             </div>
 
 
-            <div class="booking-table">
+            <div
+                id="moviesList"
+                class="cards-grid"
+            >
+
+                <div class="empty-state">
+                    <div class="empty-icon">🎬</div>
+                    <h4>No movies added</h4>
+                    <p>Add your first movie.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             THEATRES
+        ====================================== -->
+
+        <section
+            id="theatres"
+            class="admin-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Theatre Management</h2>
+
+                    <p>
+                        Manage cinema theatres and screens
+                    </p>
+                </div>
+
+
+                <button
+                    class="primary-button"
+                    onclick="openTheatreModal()"
+                >
+                    + Add Theatre
+                </button>
+
+            </div>
+
+
+            <div
+                id="theatresList"
+                class="cards-grid"
+            >
+
+                <div class="empty-state">
+                    <div class="empty-icon">🏢</div>
+                    <h4>No theatres added</h4>
+                    <p>Add your first theatre.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             SHOWS
+        ====================================== -->
+
+        <section
+            id="shows"
+            class="admin-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Show Management</h2>
+
+                    <p>
+                        Schedule movies in theatres
+                    </p>
+                </div>
+
+
+                <button
+                    class="primary-button"
+                    onclick="openShowModal()"
+                >
+                    + Create Show
+                </button>
+
+            </div>
+
+
+            <div
+                id="showsList"
+                class="cards-grid"
+            >
+
+                <div class="empty-state">
+                    <div class="empty-icon">🎟️</div>
+                    <h4>No shows scheduled</h4>
+                    <p>Create a movie show.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             BOOKINGS
+        ====================================== -->
+
+        <section
+            id="bookings"
+            class="admin-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Booking Management</h2>
+
+                    <p>
+                        View and manage customer bookings
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-panel">
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Booking ID
+                                </th>
+
+                                <th>
+                                    Customer
+                                </th>
+
+                                <th>
+                                    Movie
+                                </th>
+
+                                <th>
+                                    Theatre
+                                </th>
+
+                                <th>
+                                    Seats
+                                </th>
+
+                                <th>
+                                    Amount
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="bookingsTable">
+
+                            <tr>
+
+                                <td
+                                    colspan="7"
+                                    class="table-empty"
+                                >
+                                    No bookings available
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             FOOD
+        ====================================== -->
+
+        <section
+            id="food"
+            class="admin-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Food Orders</h2>
+
+                    <p>
+                        Manage interval food orders
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="food-grid">
+
+                <div class="food-stat">
+
+                    <span class="food-stat-icon">
+                        🍿
+                    </span>
+
+                    <div>
+                        <strong>
+                            Popcorn Orders
+                        </strong>
+
+                        <small>
+                            Pending orders
+                        </small>
+                    </div>
+
+                    <b>
+                        0
+                    </b>
+
+                </div>
+
+
+                <div class="food-stat">
+
+                    <span class="food-stat-icon">
+                        🥤
+                    </span>
+
+                    <div>
+                        <strong>
+                            Drink Orders
+                        </strong>
+
+                        <small>
+                            Pending orders
+                        </small>
+                    </div>
+
+                    <b>
+                        0
+                    </b>
+
+                </div>
+
+
+                <div class="food-stat">
+
+                    <span class="food-stat-icon">
+                        🍕
+                    </span>
+
+                    <div>
+                        <strong>
+                            Food Orders
+                        </strong>
+
+                        <small>
+                            Pending orders
+                        </small>
+                    </div>
+
+                    <b>
+                        0
+                    </b>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-panel food-empty-panel">
 
                 <div class="empty-state">
 
-                    <div>
-                        🎟️
+                    <div class="empty-icon">
+                        🍿
                     </div>
 
-                    <h3>
-                        No bookings yet
-                    </h3>
+                    <h4>
+                        No food orders yet
+                    </h4>
 
                     <p>
-                        Customer bookings will appear here.
+                        Customer interval food orders will appear here.
                     </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             USERS
+        ====================================== -->
+
+        <section
+            id="users"
+            class="admin-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>User Management</h2>
+
+                    <p>
+                        Registered CineBook customers
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-panel">
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    User
+                                </th>
+
+                                <th>
+                                    Email
+                                </th>
+
+                                <th>
+                                    Role
+                                </th>
+
+                                <th>
+                                    Joined
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="usersTable">
+
+                            <tr>
+
+                                <td
+                                    colspan="5"
+                                    class="table-empty"
+                                >
+                                    No users available
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
 
                 </div>
 
@@ -313,63 +960,472 @@
     </main>
 
 
-    <script>
 
-        // Check admin login
+    <!-- =========================================
+         MOVIE MODAL
+    ========================================== -->
 
-        const user = JSON.parse(
-            localStorage.getItem("user")
-        );
+    <div
+        id="movieModal"
+        class="modal"
+    >
 
-        if (!user) {
+        <div class="modal-box">
 
-            window.location.href =
-                "../login.html";
+            <div class="modal-header">
 
-        }
+                <div>
 
+                    <span class="modal-icon">
+                        🎬
+                    </span>
 
-        // Only admin can access dashboard
+                    <div>
+                        <h3>
+                            Add New Movie
+                        </h3>
 
-        if (user && user.role !== "admin") {
+                        <p>
+                            Add movie details
+                        </p>
+                    </div>
 
-            window.location.href =
-                "../home.html";
-
-        }
-
-
-        // Display admin name
-
-        if (user) {
-
-            const adminName =
-                document.getElementById("adminName");
-
-            if (adminName) {
-
-                adminName.textContent =
-                    user.name;
-
-            }
-
-        }
+                </div>
 
 
-        // Logout
+                <button
+                    class="close-button"
+                    onclick="closeMovieModal()"
+                >
+                    ×
+                </button>
 
-        function logout() {
+            </div>
 
-            localStorage.removeItem("token");
 
-            localStorage.removeItem("user");
+            <form id="movieForm">
 
-            window.location.href =
-                "../login.html";
+                <div class="form-grid">
 
-        }
+                    <div class="form-group">
 
-    </script>
+                        <label>
+                            Movie Title *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="movieTitle"
+                            placeholder="Enter movie title"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Genre
+                        </label>
+
+                        <input
+                            type="text"
+                            id="movieGenre"
+                            placeholder="Action, Drama..."
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Language
+                        </label>
+
+                        <input
+                            type="text"
+                            id="movieLanguage"
+                            value="Telugu"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Duration
+                        </label>
+
+                        <input
+                            type="text"
+                            id="movieDuration"
+                            placeholder="2h 30m"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Rating
+                        </label>
+
+                        <input
+                            type="number"
+                            id="movieRating"
+                            min="0"
+                            max="10"
+                            step="0.1"
+                            placeholder="8.5"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Poster URL
+                        </label>
+
+                        <input
+                            type="url"
+                            id="moviePoster"
+                            placeholder="https://..."
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Description
+                    </label>
+
+                    <textarea
+                        id="movieDescription"
+                        placeholder="Enter movie description..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-button"
+                        onclick="closeMovieModal()"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Add Movie
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         THEATRE MODAL
+    ========================================== -->
+
+    <div
+        id="theatreModal"
+        class="modal"
+    >
+
+        <div class="modal-box">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span class="modal-icon">
+                        🏢
+                    </span>
+
+                    <div>
+                        <h3>
+                            Add New Theatre
+                        </h3>
+
+                        <p>
+                            Add cinema theatre details
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="close-button"
+                    onclick="closeTheatreModal()"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="theatreForm">
+
+                <div class="form-group">
+
+                    <label>
+                        Theatre Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="theatreName"
+                        placeholder="PVR Cinemas"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Location *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="theatreLocation"
+                        placeholder="Vijayawada"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Number of Screens
+                    </label>
+
+                    <input
+                        type="number"
+                        id="theatreScreens"
+                        min="1"
+                        value="1"
+                    >
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-button"
+                        onclick="closeTheatreModal()"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Add Theatre
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         SHOW MODAL
+    ========================================== -->
+
+    <div
+        id="showModal"
+        class="modal"
+    >
+
+        <div class="modal-box">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span class="modal-icon">
+                        🎟️
+                    </span>
+
+                    <div>
+                        <h3>
+                            Create New Show
+                        </h3>
+
+                        <p>
+                            Schedule a movie show
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="close-button"
+                    onclick="closeShowModal()"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="showForm">
+
+                <div class="form-group">
+
+                    <label>
+                        Select Movie *
+                    </label>
+
+                    <select
+                        id="showMovie"
+                        required
+                    >
+
+                        <option value="">
+                            Select Movie
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Select Theatre *
+                    </label>
+
+                    <select
+                        id="showTheatre"
+                        required
+                    >
+
+                        <option value="">
+                            Select Theatre
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            Show Date *
+                        </label>
+
+                        <input
+                            type="date"
+                            id="showDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Show Time *
+                        </label>
+
+                        <input
+                            type="time"
+                            id="showTime"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Ticket Price *
+                    </label>
+
+                    <input
+                        type="number"
+                        id="ticketPrice"
+                        placeholder="250"
+                        min="1"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-button"
+                        onclick="closeShowModal()"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Create Show
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="../js/admin.js"></script>
 
 </body>
 

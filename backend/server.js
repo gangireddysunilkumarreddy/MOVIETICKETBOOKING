@@ -1,3 +1,6 @@
+const showRoutes = require("./routes/shows");
+const theatreRoutes = require("./routes/theatres");
+const movieRoutes = require("./routes/movies");
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -13,6 +16,9 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/movies", movieRoutes);
+app.use("/api/theatres", theatreRoutes);
+app.use("/api/shows", showRoutes);
 
 app.get("/", (req, res) => {
     res.json({
