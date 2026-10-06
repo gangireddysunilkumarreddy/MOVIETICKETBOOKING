@@ -1,5 +1,4 @@
-https://movieticketbookings-32891aif8-gangireddysunilkumarreddy.vercel.app
-const token = localStorage.getItem("token");
+const API_BASE = "https://movieticketbookings-32891aif8-gangireddysunilkumarreddy.vercel.app/api";const token = localStorage.getItem("token");
 const storedUser = localStorage.getItem("user");
 
 let currentUser = null;
