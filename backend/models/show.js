@@ -6,18 +6,14 @@ const seatSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-
         status: {
             type: String,
             enum: ["available", "booked"],
             default: "available"
         }
     },
-    {
-        _id: false
-    }
+    { _id: false }
 );
-
 
 const showSchema = new mongoose.Schema(
     {
@@ -64,6 +60,4 @@ const showSchema = new mongoose.Schema(
     }
 );
 
-
-module.exports =
-    mongoose.model("Show", showSchema);
+module.exports = mongoose.model("Show", showSchema);
